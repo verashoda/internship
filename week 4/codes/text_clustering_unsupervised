@@ -1,0 +1,72 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Aug  6 13:06:45 2019
+Text Clustering (Unsupervised)
+@author: verareyes
+"""
+
+#Import libraries
+import string
+import collections
+import nltk
+from nltk import word_tokenize
+from nltk.tokenize import sent_tokenize
+from nltk.stem import PorterStemmer
+from nltk.corpus import stopwords
+import sklearn
+from sklearn.cluster import KMeans
+from sklearn.feature_extraction.text import TfidfVectorizer
+from pprint import pprint
+import pandas as pd
+import numpy
+import wordcloud
+import re
+
+
+######Loading file and sentence tokenize#######
+with open("/home/verareyes/lp/mine_01.txt") as fp:
+    line = fp.readline()
+    cnt = 1
+    sent_tokens = []
+    while line:
+        sent_tokens.append(sent_tokenize(line))
+        line = fp.readline()
+        cnt += 1
+
+text = ''.join(str(e) for e in sent_tokens)
+clean_text = ''.join([i for i in text if not i.isdigit()])
+#sent_tokenized = sent_tokenize(clean_text)
+#
+#tokens = clean_text.strip().split()
+#clean_tokens = [e for e in tokens if re.match(r'[^\W\d]*$', e)]
+#clean_s = ''.join(clean_tokens)
+
+###### word tokenize #####
+tokenized_word=word_tokenize(clean_text)
+stop_words=set(stopwords.words("english"))
+filtered_word=[]
+for w in tokenized_word:
+    if w not in stop_words:
+        filtered_word.append(w)
+noise={"[", "]", ":", "'", "'", ":", "(", ".", ")", "<", "``", "''", "0", ">", "PogChamp", "LUL", "Squid", "Fitz", "Twitch", "Prime", "subscribed", "PunchTrees", "boomer", "Kreygasm", "BabyRage", "jschlaMonetized", "BibleThump", "@", "SSSsss", "Nightbot", "uptime", "minutes", "seconds", "jojisvlog", "!", "?", "ResidentSleeper", "Kappa", "TriHard", "SMOrc", "Pog", "poggers", "pogs", "POG", "PepeHands", "NotLikeThis", "WutFace", "Vod", "VOD"}
+final_words=[]
+for w in filtered_word:
+    if w not in noise:
+        final_words.append(w)
+
+
+###### frequency distribution #####
+#from nltk.probability import FreqDist
+#fdist = FreqDist(final_words)
+#
+#import matplotlib.pyplot as plt
+#fdist.plot(35,cumulative=False)
+#plt.show()
+   
+
+
+
+
+
+
