@@ -1,0 +1,11 @@
+category,before_match,break,character_data,final_round,lose,round_one,round_two,win,player_standings,select_character,story,training,trials
+badp,0,0,0,0,6,0,0,0,0,0,0,0,0
+caction,5,0,0,0,6,6,12,16,0,0,0,0,0
+cdesign,5,0,0,0,6,13,4,0,0,0,0,0,0
+cinfo,11,0,0,0,13,10,8,0,0,0,50,0,0
+comment,0,0,0,0,0,0,4,5,0,0,0,0,0
+game,0,0,0,0,0,0,8,16,0,0,0,0,0
+goodp,11,9,0,0,6,0,4,5,0,0,0,0,0
+other,21,35,0,50,6,26,16,26,0,0,50,0,0
+question,0,0,0,25,13,3,0,11,0,0,0,0,0
+request,47,57,0,25,44,42,44,21,0,0,0,100,0
